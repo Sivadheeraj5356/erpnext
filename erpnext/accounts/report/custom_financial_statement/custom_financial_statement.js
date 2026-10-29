@@ -3,7 +3,9 @@
 
 const CFS_REPORT_NAME = "Custom Financial Statement";
 
-frappe.query_reports[CFS_REPORT_NAME] = $.extend({}, erpnext.financial_statements);
+frappe.query_reports[CFS_REPORT_NAME] = $.extend({}, erpnext.financial_statements, {
+	filters: [...erpnext.financial_statements.filters],
+});
 
 erpnext.utils.add_dimensions(CFS_REPORT_NAME, 10);
 
