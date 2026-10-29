@@ -3,7 +3,9 @@
 
 const PL_REPORT_NAME = "Profit and Loss Statement";
 
-frappe.query_reports[PL_REPORT_NAME] = $.extend({}, erpnext.financial_statements);
+frappe.query_reports[PL_REPORT_NAME] = $.extend({}, erpnext.financial_statements, {
+	filters: [...erpnext.financial_statements.filters],
+});
 
 erpnext.utils.add_dimensions(PL_REPORT_NAME, 10);
 
