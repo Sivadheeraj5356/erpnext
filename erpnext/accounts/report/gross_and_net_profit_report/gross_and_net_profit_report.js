@@ -3,7 +3,9 @@
 
 const GNP_REPORT = "Gross and Net Profit Report";
 
-frappe.query_reports[GNP_REPORT] = $.extend({}, erpnext.financial_statements);
+frappe.query_reports[GNP_REPORT] = $.extend({}, erpnext.financial_statements, {
+	filters: [...erpnext.financial_statements.filters],
+});
 
 erpnext.utils.add_dimensions(GNP_REPORT, 10);
 
