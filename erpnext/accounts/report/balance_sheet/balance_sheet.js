@@ -3,7 +3,9 @@
 
 const BS_REPORT_NAME = "Balance Sheet";
 
-frappe.query_reports[BS_REPORT_NAME] = $.extend({}, erpnext.financial_statements);
+frappe.query_reports[BS_REPORT_NAME] = $.extend({}, erpnext.financial_statements, {
+	filters: [...erpnext.financial_statements.filters],
+});
 
 erpnext.utils.add_dimensions(BS_REPORT_NAME, 10);
 
